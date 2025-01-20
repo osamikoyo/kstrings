@@ -57,7 +57,7 @@ str_t * str_sum(str_t *str, str_t *summed_str){
     return result;
 }
 
-str_t * strlen_kstring(const char * text){
+static str_t * strlen_kstring(const char * text){
     size_t length = 0;
     while (*text != '\0')
     {

@@ -36,10 +36,9 @@ void output_str(str_t *str, FILE *writer){
     fwrite(str->data, sizeof(uint8_t), str->length, writer);
 }
 
-str_t * str_dup(str_t * str) {
-    str_t * result = create_str(str->length);
-    memcpy(result->data, str->data, str->length);
-    result->how_much = str->how_much;
+str_t * str_dup(const char *text) {
+    str_t * result = create_str(strlen_kstring(text));
+    memcpy(result->data, text, strlen_kstring(text));
     return result;
 }
 
@@ -56,6 +55,16 @@ str_t * str_sum(str_t *str, str_t *summed_str){
     result->how_much = str->how_much + summed_str->how_much;
 
     return result;
+}
+
+str_t * strlen_kstring(const char * text){
+    size_t length = 0;
+    while (*text != '\0')
+    {
+        length++;
+        text++;
+    }
+    return length;
 }
 
 int main(){

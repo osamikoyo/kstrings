@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <time.h>
 
 typedef struct kstrings
@@ -42,6 +43,18 @@ str_t * str_dup(const char *text) {
     return result;
 }
 
+bool kstr_has_prefix(str_t *str, char *prefix){
+    char pref[strlen(prefix)];
+    strncpy(str, prefix, strlen(prefix));
+    pref[strlen(prefix)-1] = '\0';
+
+    if (strcmp(pref, prefix) == 0)
+    {
+        return true;
+    }
+    return false;
+}
+
 str_t * str_sum(str_t *str, str_t *summed_str){
     str_t * result = create_str(str->length + summed_str->length);
     if (result == NULL) {
@@ -66,3 +79,4 @@ static str_t * strlen_kstring(const char * text){
     }
     return length;
 }
+

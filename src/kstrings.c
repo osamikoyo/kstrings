@@ -66,7 +66,3 @@ static str_t * strlen_kstring(const char * text){
     }
     return length;
 }
-
-int main(){
-    printf("hellooo");
-}

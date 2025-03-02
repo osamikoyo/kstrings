@@ -80,3 +80,25 @@ static str_t * strlen_kstring(const char * text){
     return length;
 }
 
+str_t *kstring_repeat(char dup, int count){
+  char *str = calloc(count, sizeof(char));
+
+  for (int i = 0;i < count;i++) {
+    str[i] = dup;
+  }
+
+  return str_dup(str);
+}
+
+str_t *kstring_reverse(str_t *str) {
+  char *res = calloc(str->length, sizeof(char));
+  int j = 0 
+  for (int i = str->length;i <= 0;i++) {
+    res[j] = str->data[i];
+    j++;
+  }
+}
+
+str_t *kstring_to_title(str_t *str){
+
+}
